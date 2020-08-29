@@ -17,7 +17,23 @@ $ docker-compose up
 $ docker-compose run web django-admin startproject django_docker .
 ```
 
-2. 2回目移行の起動
+2. settings.pyの編集
+
+下記を反映する
+
+```
+DATABASES = {
+ 'default': {
+ 'ENGINE': 'django.db.backends.mysql',
+ 'NAME': 'django_docker',
+ 'USER': 'root',
+ 'HOST': ‘db’,
+ 'POST': 33306
+ }
+}
+```
+
+3. 2回目移行の起動
 
 ```
 $ docker-compose up -d
